@@ -7,7 +7,7 @@ Purpose
 - **Why:** By discovering working values you can determine which byte sequences correspond to vibration levels and other device modes.
 
 Where to put discovered values
-- **File:** [src/LS.h](src/LS.h#L1) — the discovered values belong in the `manufacturerDataList` array used by the main project.
+- **File:** [src/LS.h](https://github.com/Fi0nee/LS-Buttplug/blob/main/PlatformIO/src/LS.h) — the discovered values belong in the `manufacturerDataList` array used by the main project.
 
 Example vibration profiles array
 ```cpp
@@ -32,7 +32,7 @@ Field notes
 How to use
 1. Flash the ESP32 with this firmware.
 2. Use the web UI served by the device to tweak/edit manufacturer data profiles and broadcast them to test device behavior.
-3. When you find working codes, copy the corresponding bytes into the `manufacturerDataList` array in [src/LS.h](src/LS.h#L1) of the main project (https://github.com/Fi0nee/LS-Buttplug).
+3. When you find working codes, copy the corresponding bytes into the `manufacturerDataList` array in [src/LS.h](https://github.com/Fi0nee/LS-Buttplug/blob/main/PlatformIO/src/LS.h) of the main project (https://github.com/Fi0nee/LS-Buttplug).
 
 Notes
 - This repository is a helper firmware only — changes you want applied to the main firmware should be made in the `LS-Buttplug` project.
