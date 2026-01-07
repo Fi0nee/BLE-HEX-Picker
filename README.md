@@ -7,7 +7,7 @@ Purpose
 - **Why:** By discovering working values you can determine which byte sequences correspond to vibration levels and other device modes.
 
 Where to put discovered values
-- **File:** [src/LS.h](src/LS.h#L1) — the discovered values belong in the `manufacturerDataList` array used by the main project.
+- **File:** [src/LS.h]([src/LS.h#L1](https://github.com/Fi0nee/LS-Buttplug/blob/main/PlatformIO/src/LS.h)) — the discovered values belong in the `manufacturerDataList` array used by the main project.
 
 Example vibration profiles array
 ```cpp
