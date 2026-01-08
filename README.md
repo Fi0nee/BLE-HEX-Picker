@@ -11,16 +11,16 @@ Where to put discovered values
 
 Example vibration profiles array
 ```cpp
-// ---------------- HEX ----------------
-static uint8_t manufacturerDataList[][MANUFACTURER_DATA_LENGTH] = {
-    {MANUFACTURER_DATA_PREFIX, 0xE5, 0x00, 0x00}, // Stop
-    {MANUFACTURER_DATA_PREFIX, 0xF4, 0x00, 0x00}, // L1
-    {MANUFACTURER_DATA_PREFIX, 0xF7, 0x00, 0x00}, // L2
-    {MANUFACTURER_DATA_PREFIX, 0xF6, 0x00, 0x00}, // L3
-    {MANUFACTURER_DATA_PREFIX, 0xF1, 0x00, 0x00}, // L4
-    {MANUFACTURER_DATA_PREFIX, 0xF3, 0x00, 0x00}, // L5
-    {MANUFACTURER_DATA_PREFIX, 0xE7, 0x00, 0x00}, // L6
-    {MANUFACTURER_DATA_PREFIX, 0xE6, 0x00, 0x00}, // L7
+// ---------------- Channel values ----------------
+static constexpr uint32_t CHANNELS[] = {
+    0xE50000, // Stop
+    0xF40000, // L1
+    0xF70000, // L2
+    0xF60000, // L3
+    0xF10000, // L4
+    0xF30000, // L5
+    0xE70000, // L6
+    0xE60000, // L7
 };
 ```
 
