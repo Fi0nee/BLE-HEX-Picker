@@ -7,7 +7,7 @@ Purpose
 - **Why:** By discovering working values you can determine which byte sequences correspond to vibration levels and other device modes.
 
 Where to put discovered values
-- **File:** [src/LS.h](https://github.com/Fi0nee/LS-Buttplug/blob/main/PlatformIO/src/LS.h) — the discovered values belong in the `manufacturerDataList` array used by the main project.
+- **File:** [src/LS.h](src/LS.h#L1) — the discovered values belong in the `manufacturerDataList` array used by the main project.
 
 Example vibration profiles array
 ```cpp
@@ -32,7 +32,7 @@ Field notes
 How to use
 1. Flash the ESP32 with this firmware.
 2. Use the web UI served by the device to tweak/edit manufacturer data profiles and broadcast them to test device behavior.
-3. When you find working codes, copy the corresponding bytes into the `manufacturerDataList` array in [src/LS.h](https://github.com/Fi0nee/LS-Buttplug/blob/main/PlatformIO/src/LS.h) of the main project (https://github.com/Fi0nee/LS-Buttplug).
+3. When you find working codes, copy the corresponding bytes into the `manufacturerDataList` array in [src/LS.h](src/LS.h#L1) of the main project (https://github.com/Fi0nee/LS-Buttplug).
 
 Notes
 - This repository is a helper firmware only — changes you want applied to the main firmware should be made in the `LS-Buttplug` project.
@@ -65,3 +65,15 @@ const char* WIFI_PASS = "YOUR_PASSWORD";
 - Manufacturer data: if you want default profiles baked into the firmware, edit `manufacturerDataList` in `src/LS.h` with the values you want the device to advertise by default.
 
 - Additional parameters: if your data format differs, adjust `MANUFACTURER_DATA_LENGTH` and `MANUFACTURER_DATA_PREFIX` in `src/LS.h` accordingly.
+
+Tips
+----
+- If upload does not start, verify the correct serial port in PlatformIO (VS Code: PlatformIO → Devices) or pass `-e <env>`/`-p <port>` to `pio run`.
+- For build errors, check the PlatformIO terminal output — it will show compilation/linker errors.
+- To quickly monitor WiFi/connectivity logs use the serial monitor:
+
+```bash
+pio device monitor
+```
+
+and watch for messages like `WiFi connected` or `Connecting to WiFi...`.
