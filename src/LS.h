@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <LS.h>
 #include <NimBLEDevice.h>
 #include <cmath>
 
@@ -15,27 +16,16 @@ static uint8_t _intensity_value = 0;
 static uint8_t _last_intensity_value = 255;
 static bool _stopping = false;
 
-// Значения уровней вибрации (3-байтные hex)
-static constexpr uint32_t VIB_STOP  = 0xE50000; // Stop
-static constexpr uint32_t VIB_LOW1  = 0xF40000; // L1
-static constexpr uint32_t VIB_LOW2  = 0xF70000; // L2
-static constexpr uint32_t VIB_LOW3  = 0xF60000; // L3
-static constexpr uint32_t VIB_LOW4  = 0xF10000; // L4
-static constexpr uint32_t VIB_LOW5  = 0xF30000; // L5
-static constexpr uint32_t VIB_MED   = 0xE70000; // L6
-static constexpr uint32_t VIB_HIGH  = 0xE60000; // L7
-
-#define VIB_LEVEL(v) MANUFACTURER_DATA_PREFIX, (uint8_t)(((v) >> 16) & 0xFF), (uint8_t)(((v) >> 8) & 0xFF), (uint8_t)((v) & 0xFF)
-
+// ---------------- HEX ----------------
 static uint8_t manufacturerDataList[][MANUFACTURER_DATA_LENGTH] = {
-    { VIB_LEVEL(VIB_STOP) },
-    { VIB_LEVEL(VIB_LOW1) },
-    { VIB_LEVEL(VIB_LOW2) },
-    { VIB_LEVEL(VIB_LOW3) },
-    { VIB_LEVEL(VIB_LOW4) },
-    { VIB_LEVEL(VIB_LOW5) },
-    { VIB_LEVEL(VIB_MED)  },
-    { VIB_LEVEL(VIB_HIGH) },
+    {MANUFACTURER_DATA_PREFIX, 0xE5, 0x00, 0x00}, // Stop
+    {MANUFACTURER_DATA_PREFIX, 0xF4, 0x00, 0x00}, // L1
+    {MANUFACTURER_DATA_PREFIX, 0xF7, 0x00, 0x00}, // L2
+    {MANUFACTURER_DATA_PREFIX, 0xF6, 0x00, 0x00}, // L3
+    {MANUFACTURER_DATA_PREFIX, 0xF1, 0x00, 0x00}, // L4
+    {MANUFACTURER_DATA_PREFIX, 0xF3, 0x00, 0x00}, // L5
+    {MANUFACTURER_DATA_PREFIX, 0xE7, 0x00, 0x00}, // L6
+    {MANUFACTURER_DATA_PREFIX, 0xE6, 0x00, 0x00}, // L7
 };
 
 // ---------------- Установка manufacturer data и реклама ----------------
