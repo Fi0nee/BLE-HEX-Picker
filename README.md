@@ -65,15 +65,3 @@ const char* WIFI_PASS = "YOUR_PASSWORD";
 - Manufacturer data: if you want default profiles baked into the firmware, edit `manufacturerDataList` in `src/LS.h` with the values you want the device to advertise by default.
 
 - Additional parameters: if your data format differs, adjust `MANUFACTURER_DATA_LENGTH` and `MANUFACTURER_DATA_PREFIX` in `src/LS.h` accordingly.
-
-Tips
-----
-- If upload does not start, verify the correct serial port in PlatformIO (VS Code: PlatformIO → Devices) or pass `-e <env>`/`-p <port>` to `pio run`.
-- For build errors, check the PlatformIO terminal output — it will show compilation/linker errors.
-- To quickly monitor WiFi/connectivity logs use the serial monitor:
-
-```bash
-pio device monitor
-```
-
-and watch for messages like `WiFi connected` or `Connecting to WiFi...`.
